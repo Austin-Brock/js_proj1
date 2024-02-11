@@ -51,3 +51,28 @@ const positiveSum = nums.filter(number => number > 0)
                         .reduce((sum, current) => sum + current, 0);
 
 console.log(positiveSum);
+
+console.log(mapThis(numbers, double)); // 66, 24, 40, ...
+console.log(mapThis([1,2,3], double)); // 2,4,6
+console.log(mapThis([5,10,5], triple)); // 15, 30, 15
+console.log(mapThis([1,2], square)); // 1,4
+
+
+myarray = [2,3,4];
+updateEach(myarray, increment);
+console.log(myarray); // 3,4,5
+updateEach(myarray, square);
+console.log(myarray); // 9, 16, 25
+
+
+updateEach(numbers,triple);
+console.log(numbers); // 99, 36, 60, ...
+
+console.log(youngPeople);
+[
+  {name: 'Jane Poe', email:'jane@gmail.com'},
+  {name: 'Sara Soe', email:'sara@gmail.com'},
+  {name: 'Jose Koe', email:'jose@gmail.com'}
+]
+
+console.log(positiveSum); // 79
