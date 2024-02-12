@@ -1,57 +1,3 @@
-// #1
-function double(n) {
-    return n * 2;
-}
-
-function triple(n) {
-    return n * 3;
-}
-
-//#2
-const square = n => n * n;
-
-const increment = n => n + 1;
-
-//#4
-function mapThis(array, callback) {
-    let resultArray = [];
-    for (let i = 0; i < array.length; i++) {
-        resultArray.push(callback(array[i]));
-    }
-    return resultArray;
-}
-
-//#5
-function updateEach(array, callback) {
-    for (let i = 0; i < array.length; i++) {
-        array[i] = callback(array[i]);
-    }
-    // No return statement because the array is modified in place
-}
-
-//#6
-function updateEach(array, callback) {
-    for (let i = 0; i < array.length; i++) {
-        array[i] = callback(array[i]);
-    }
-    // No return statement because the array is modified in place
-}
-
-//#7
-const youngPeople = people.filter(person => person.age <= 25)
-                          .map(person => ({
-                            name: person.firstName + ' ' + person.lastName,
-                            email: person.email
-                          }));
-
-console.log(youngPeople);
-
-//#8
-const positiveSum = nums.filter(number => number > 0)
-                        .reduce((sum, current) => sum + current, 0);
-
-console.log(positiveSum);
-
 const numbers = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
 const nums = [2, -30, 50, 20, -12, -9, 7];
 const people = [
@@ -92,6 +38,36 @@ const people = [
   },
 ];
 
+const double = num => num * 2;
+const triple = num => num * 3;
+const square = num => num * num;
+const increment = num => num + 1;
+
+function mapThis(array, callback) {
+  const mappedArray = [];
+  for (let i = 0; i < array.length; i++) {
+    mappedArray.push(callback(array[i]));
+  }
+  return mappedArray;
+}
+
+function updateEach(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    array[i] = callback(array[i]);
+  }
+}
+
+const youngPeople = people
+  .filter(person => person.age <= 25)
+  .map(person => ({ name: `${person.firstName} ${person.lastName}`, email: person.email }));
+
+const positiveSum = nums.filter(num => num > 0).reduce((acc, curr) => acc + curr, 0);
+
+console.log(double(5)); // Output: 10
+console.log(triple(5)); // Output: 15
+console.log(square(3)); // Output: 9
+console.log(increment(5)); // Output: 6
+
 console.log(mapThis(numbers, double)); 
 console.log(mapThis([1,2,3], double)); 
 console.log(mapThis([5,10,5], triple)); 
@@ -109,29 +85,3 @@ console.log(numbers);
 console.log(youngPeople);
 
 console.log(positiveSum);
-
-//TEST
-console.log(mapThis(numbers, double)); // 66, 24, 40, ...
-console.log(mapThis([1,2,3], double)); // 2,4,6
-console.log(mapThis([5,10,5], triple)); // 15, 30, 15
-console.log(mapThis([1,2], square)); // 1,4
-
-
-myarray = [2,3,4];
-updateEach(myarray, increment);
-console.log(myarray); // 3,4,5
-updateEach(myarray, square);
-console.log(myarray); // 9, 16, 25
-
-
-updateEach(numbers,triple);
-console.log(numbers); // 99, 36, 60, ...
-
-console.log(youngPeople);
-[
-  {name: 'Jane Poe', email:'jane@gmail.com'},
-  {name: 'Sara Soe', email:'sara@gmail.com'},
-  {name: 'Jose Koe', email:'jose@gmail.com'}
-]
-
-console.log(positiveSum); // 79
